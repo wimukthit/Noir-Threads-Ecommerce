@@ -12,3 +12,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['cart'])) {
 
 header("Location: cart.php");
 exit;
+
