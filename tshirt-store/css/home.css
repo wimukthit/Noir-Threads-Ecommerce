@@ -1,0 +1,104 @@
+/* =========================================================
+   HOME PAGE — hero slider + category strip
+   Loaded only on index.php (in addition to base.css)
+   ========================================================= */
+
+.hero-slider {
+  position: relative;
+  height: 78vh;
+  min-height: 480px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: flex;
+  align-items: flex-end;
+}
+.slide.active { opacity: 1; }
+.slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+.slide-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 64px;
+  max-width: var(--container);
+  margin: 0 auto;
+  width: 100%;
+  color: var(--bg);
+}
+.slide-eyebrow {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.slide-content h1 {
+  font-size: clamp(48px, 9vw, 110px);
+  margin-bottom: 16px;
+}
+.slide-content p {
+  font-size: 17px;
+  max-width: 460px;
+  color: var(--stone);
+  margin-bottom: 26px;
+}
+.slider-dots {
+  position: absolute;
+  bottom: 26px;
+  right: 24px;
+  z-index: 3;
+  display: flex;
+  gap: 10px;
+}
+.slider-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--bg);
+  background: transparent;
+  padding: 0;
+}
+.slider-dots button.active { background: var(--accent); border-color: var(--accent); }
+
+/* Category strip */
+.category-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.category-card {
+  position: relative;
+  background: var(--ink);
+  border-radius: var(--radius);
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px;
+}
+.category-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; transition: transform 0.4s ease; }
+.category-card:hover img { transform: scale(1.06); }
+.category-card span {
+  position: relative;
+  z-index: 2;
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 960px) {
+  .category-strip { grid-template-columns: repeat(2, 1fr); }
+}
